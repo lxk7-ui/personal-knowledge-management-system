@@ -1,0 +1,29 @@
+# IDE 与操作系统文件
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Java / Maven 构建产物
+backend/target/
+*.class
+
+# Node.js / Vite 构建产物
+frontend/node_modules/
+frontend/dist/
+
+# 本地配置、密钥与日志
+.env
+.env.*
+!.env.example
+*.log
+logs/
+
+# 本地演示数据（不作为部署源码发布）
+database/seed_data.sql
+
+# 论文与个人材料不属于系统源码
+*.doc
+*.docx
+*.pdf

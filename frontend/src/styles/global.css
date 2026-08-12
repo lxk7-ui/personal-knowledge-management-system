@@ -1,0 +1,146 @@
+/* ========== 全局样式变量与基础重置 ========== */
+:root {
+  /* 木质桌面色系 */
+  --desk-color: #b89b7a;
+  --desk-dark: #9a7e5f;
+  --desk-light: #d4be9c;
+  /* 书本色系 */
+  --page-color: #fef8ee;
+  --page-dark: #f5e8d0;
+  --page-border: #e0d0b8;
+  /* 主色 - 更柔和的蓝 */
+  --primary: #6aadcf;
+  --primary-light: #9dcde6;
+  --primary-dark: #4a8fb5;
+  --primary-bg: rgba(106, 173, 207, 0.08);
+  --success: #7bc4a0;
+  --success-bg: rgba(123, 196, 160, 0.1);
+  --warning: #edb96a;
+  --warning-bg: rgba(237, 185, 106, 0.1);
+  --danger: #e08b8b;
+  --danger-bg: rgba(224, 139, 139, 0.1);
+  --info: #a0aec0;
+  /* 文字色 */
+  --text-primary: #4a3c2e;
+  --text-secondary: #7a6c5c;
+  --text-light: #a09080;
+  --text-white: rgba(255, 255, 255, 0.95);
+  /* 圆角 */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  /* 阴影 */
+  --shadow-sm: 0 2px 8px rgba(74, 60, 46, 0.08);
+  --shadow-md: 0 4px 20px rgba(74, 60, 46, 0.12);
+  --shadow-lg: 0 8px 40px rgba(74, 60, 46, 0.18);
+  /* 毛玻璃 */
+  --glass-bg: rgba(255, 253, 248, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-blur: blur(16px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
+  color: var(--text-primary);
+  background: var(--desk-color);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(74, 60, 46, 0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(74, 60, 46, 0.3);
+}
+
+/* Element Plus 样式覆盖 */
+.el-button {
+  border-radius: var(--radius-md) !important;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  letter-spacing: 0.3px;
+}
+.el-button--primary {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary)) !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(106, 173, 207, 0.3);
+}
+.el-button--primary:hover {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
+  box-shadow: 0 4px 12px rgba(106, 173, 207, 0.4);
+}
+.el-button:active {
+  transform: scale(0.96);
+}
+
+.el-input__wrapper {
+  border-radius: var(--radius-md) !important;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(74, 60, 46, 0.06) !important;
+}
+.el-input__wrapper:hover {
+  box-shadow: 0 2px 6px rgba(74, 60, 46, 0.1) !important;
+}
+.el-input__wrapper.is-focus {
+  box-shadow: 0 0 0 3px rgba(106, 173, 207, 0.2), 0 2px 6px rgba(74, 60, 46, 0.08) !important;
+}
+
+.el-card {
+  border-radius: var(--radius-lg) !important;
+  border: none !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.el-dialog {
+  border-radius: var(--radius-xl) !important;
+  overflow: hidden;
+}
+
+.el-tag {
+  border-radius: 6px !important;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+.el-pagination {
+  justify-content: center;
+}
+.el-pagination .el-pager li {
+  border-radius: 8px !important;
+}
+
+/* 表格美化 */
+.el-table {
+  border-radius: var(--radius-md) !important;
+  overflow: hidden;
+  --el-table-border-color: rgba(74, 60, 46, 0.06);
+}
+.el-table th.el-table__cell {
+  background-color: rgba(74, 60, 46, 0.04) !important;
+  color: var(--text-primary) !important;
+  font-weight: 600;
+  font-size: 13px;
+}
+.el-table td.el-table__cell {
+  font-size: 13px;
+}
+.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+  background: rgba(74, 60, 46, 0.02) !important;
+}

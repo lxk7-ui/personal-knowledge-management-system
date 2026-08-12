@@ -1,0 +1,186 @@
+/* ========== 动画效果 ========== */
+
+/* 按钮点击缩放 */
+.btn-click {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn-click:active {
+  transform: scale(0.96);
+}
+
+/* 卡片 hover 上浮 */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* 输入框聚焦发光 */
+.input-glow:focus-within {
+  box-shadow: 0 0 0 3px rgba(126, 184, 218, 0.25);
+  border-color: var(--primary-light);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* 书本翻页动画 - 向左翻（进入下一页） */
+.page-flip-left-enter-active {
+  animation: flipInLeft 0.4s ease-out;
+}
+.page-flip-left-leave-active {
+  animation: flipOutLeft 0.3s ease-in;
+}
+
+@keyframes flipInLeft {
+  0% {
+    opacity: 0;
+    transform: rotateY(-12deg) translateX(30px);
+    transform-origin: left center;
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0) translateX(0);
+  }
+}
+
+@keyframes flipOutLeft {
+  0% {
+    opacity: 1;
+    transform: rotateY(0) translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: rotateY(12deg) translateX(-30px);
+    transform-origin: right center;
+  }
+}
+
+/* 书本翻页动画 - 向右翻（返回上一页） */
+.page-flip-right-enter-active {
+  animation: flipInRight 0.4s ease-out;
+}
+.page-flip-right-leave-active {
+  animation: flipOutRight 0.3s ease-in;
+}
+
+@keyframes flipInRight {
+  0% {
+    opacity: 0;
+    transform: rotateY(12deg) translateX(-30px);
+    transform-origin: right center;
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0) translateX(0);
+  }
+}
+
+@keyframes flipOutRight {
+  0% {
+    opacity: 1;
+    transform: rotateY(0) translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: rotateY(-12deg) translateX(30px);
+    transform-origin: left center;
+  }
+}
+
+/* 淡入动画 */
+.fade-in-enter-active {
+  animation: fadeIn 0.3s ease;
+}
+.fade-in-leave-active {
+  animation: fadeOut 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-8px); }
+}
+
+/* 登录页左右滚动切换 */
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: all 0.35s ease;
+}
+
+.slide-left-enter-from {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.slide-left-leave-to {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.slide-right-enter-from {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.slide-right-leave-to {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+/* 侧边栏菜单项动画 */
+.menu-item {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.menu-item:hover {
+  background: var(--primary-bg);
+  color: var(--primary-dark);
+  transform: translateX(2px);
+}
+.menu-item.active {
+  background: linear-gradient(135deg, rgba(106, 173, 207, 0.12), rgba(106, 173, 207, 0.06));
+  color: var(--primary-dark);
+  font-weight: 600;
+  box-shadow: inset 3px 0 0 var(--primary);
+}
+
+/* 操作成功提示动画 */
+.success-bounce {
+  animation: successBounce 0.4s ease;
+}
+
+@keyframes successBounce {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* 列表项依次进入 */
+.list-item-enter {
+  animation: listItemIn 0.3s ease backwards;
+}
+
+@keyframes listItemIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 加载旋转 */
+.loading-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

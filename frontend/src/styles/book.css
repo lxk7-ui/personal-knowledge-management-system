@@ -1,0 +1,169 @@
+/* ========== 书本样式 ========== */
+
+/* 木质桌面背景 */
+.desk-background {
+  width: 100vw;
+  height: 100vh;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 60px,
+      rgba(60, 40, 20, 0.07) 60px,
+      rgba(60, 40, 20, 0.07) 62px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 200px,
+      rgba(60, 40, 20, 0.04) 200px,
+      rgba(60, 40, 20, 0.04) 204px
+    ),
+    linear-gradient(160deg, #b08a5e 0%, #a07848 20%, #b89468 40%, #966e44 60%, #a88458 80%, #b89060 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 桌面光影效果 */
+.desk-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 25% 15%, rgba(255,255,255,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 75% 85%, rgba(0,0,0,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* 打开的书本容器 */
+.book-container {
+  position: relative;
+  width: 72vw;
+  height: 82vh;
+  min-width: 700px;
+  max-width: 1100px;
+  perspective: 1500px;
+}
+
+/* 书本主体 */
+.book-body {
+  width: 100%;
+  height: 100%;
+  background: var(--page-color);
+  border-radius: 4px 14px 14px 4px;
+  box-shadow:
+    -5px 0 15px rgba(74, 60, 46, 0.25),
+    3px 0 6px rgba(74, 60, 46, 0.08),
+    0 8px 30px rgba(74, 60, 46, 0.2),
+    0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 书脊装饰 */
+.book-body::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 18px;
+  background: linear-gradient(90deg,
+    rgba(74, 60, 46, 0.12) 0%,
+    rgba(74, 60, 46, 0.04) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 书页顶部装饰线 */
+.book-body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 18px;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--page-border), transparent 80%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 书页内容区域 */
+.book-content {
+  flex: 1;
+  padding: 28px 34px 20px 42px;
+  overflow-y: auto;
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 30px,
+      rgba(74, 60, 46, 0.02) 30px,
+      rgba(74, 60, 46, 0.02) 31px
+    ),
+    linear-gradient(180deg, var(--page-color) 0%, #faf0d8 100%);
+}
+
+/* 书页底部页码区 */
+.book-footer {
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-size: 11px;
+  letter-spacing: 1px;
+  border-top: 1px solid rgba(74, 60, 46, 0.06);
+  background: rgba(74, 60, 46, 0.015);
+}
+
+/* 书页右侧厚度效果 */
+.book-thickness {
+  position: absolute;
+  right: -3px;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  background: linear-gradient(180deg,
+    #e8dcc8 0%,
+    #ddd0b8 30%,
+    #e8dcc8 50%,
+    #ddd0b8 70%,
+    #e8dcc8 100%
+  );
+  border-radius: 0 2px 2px 0;
+  box-shadow: 1px 0 3px rgba(74, 60, 46, 0.08);
+}
+
+/* 书页标题栏 */
+.book-header {
+  padding: 14px 34px 12px 42px;
+  border-bottom: 1px solid rgba(74, 60, 46, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(74, 60, 46, 0.015);
+}
+
+.book-header .page-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.3px;
+}
+
+.book-header .page-title .icon {
+  font-size: 18px;
+  color: var(--primary);
+}
